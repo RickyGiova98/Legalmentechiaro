@@ -17,12 +17,11 @@ translateButton.addEventListener('click', async () => {
 
     try {
         // Esegue la richiesta POST all'endpoint /api/traduci con il testo inserito
-        const response = await fetch('/api/traduci', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ testo: testoDaTradurre })
-        });
-
+       const res = await fetch('https://verbose-alike-can.glitch.me/traduci', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ testo: testoDaTradurre })
+});
         // Controlla se la risposta HTTP è OK (status 200-299)
         if (!response.ok) {
             outputTextarea.value = "Errore del server (codice " + response.status + ").";
